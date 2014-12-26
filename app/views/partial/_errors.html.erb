@@ -1,0 +1,10 @@
+ <div class="error_messages">
+ <% if my_error.errors.any? %>
+
+        <% for message in my_error.errors.full_messages %>
+         <%= message %><br/>
+        <% end %>
+
+    </div>
+  <% end %>
+</div>

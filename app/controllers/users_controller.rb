@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
 
   def index
-   
-   password_salt = BCrypt::Engine.generate_salt
-      @password_hash = BCrypt::Engine.hash_secret('123', password_salt)
 
  
   end
