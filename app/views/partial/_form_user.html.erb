@@ -3,25 +3,35 @@
   <p>
 
     <%= f.label :email %><br />
-    <%= f.text_field :email %></p>
+    <%= f.text_field :email, id: 'email_form' %>
+    <span id='email_form_rezult'></span>
+    </p>
   <p>
     <%= f.label :password %><br />
-    <%= f.password_field :password %></p>
+    <%= f.password_field :password, id: 'password_form' %>
+    <span id='password_form_rezult'></span>
+    </p>
   <p>
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %></p>
+    <%= f.password_field :password_confirmation, id: 'password_confirmation_form' %>
+    <span id='password_confirmation_form_rezult'></span>
+    </p>
 
   <p>
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %></p>
+    <%= f.text_field :first_name, id: 'first_name_form' %>
+    <span id='first_name_form_rezult'></span>
+    </p>
 
   <p>
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %></p>
+    <%= f.text_field :last_name, id: 'last_name_form' %>
+    <span id='last_name_form_rezult'></span>
+    </p>
 
   <p>
     <%= f.label :information %><br />
-    <%= f.text_area :information, size: "30x3" %></p>
+    <%= f.text_area :information, size: "30x3", id: 'area_form' %></p>
 
 
    <%= f.submit class:"btn btn-primary" %>
