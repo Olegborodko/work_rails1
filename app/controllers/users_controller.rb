@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
+before_filter :find_user, only: [:edit, :update]
 
   def index
 
   end
 
   def edit
-    @user = User.find(params[:id])
+    
   end
 
 	def new
@@ -35,8 +36,7 @@ class UsersController < ApplicationController
   end
 
   def update
-
-    @user = User.find(params[:id])
+    
     @user.update_attributes(params[:user])
     if @user.errors.empty?
       
@@ -60,4 +60,8 @@ class UsersController < ApplicationController
     end
   end
 
+  private
+    def find_user
+      @user = User.find(params[:id])
+    end
 end
