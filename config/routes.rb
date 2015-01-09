@@ -1,6 +1,8 @@
 WorkRails1::Application.routes.draw do
   get "sessions/new"
-  post '*specs/validation_ajax' => 'users#validation_ajax'
+  # post '*specs/validation_ajax' => 'users#validation_ajax'
+  post '/users/validation_ajax' => 'users#validation_ajax'
+  post '/users/:id/validation_ajax' => 'users#validation_ajax'
 
   root :to => "users#index"
   resources :users
