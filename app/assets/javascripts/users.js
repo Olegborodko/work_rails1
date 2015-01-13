@@ -4,6 +4,20 @@
 
 jQuery(function($) {
 
+  $("#modal").dialog({ autoOpen: false });
+$("#modal").dialog({ show: 'fold' });
+$("#modal").dialog({ hide: 'slide' });
+$("#modal").dialog({ height: 'auto' });
+$("#modal").dialog({ width: 'auto' });
+$("#modal").dialog({ title: 'Edit user' });
+
+$("#open_modal").click(function(){
+  $("#modal").dialog('open');
+  
+});
+
+//--------------
+
 var callbacks_password = $.Callbacks();
 callbacks_password.add( validation_presence );
 callbacks_password.add( validation_password );
