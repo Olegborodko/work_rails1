@@ -38,12 +38,15 @@ before_filter :find_user, only: [:edit, :update]
   def update
     
     @user.update_attributes(params[:user])
-    if @user.errors.empty?
-      
-     redirect_to root_url
-    else
-      render 'edit'
+    
+    respond_to do |format|
+      if @user.errors.empty?
+        format.js{@rezult=true}
+      else
+        format.js{@rezult=false}
+      end
     end
+
   end
 
   def create

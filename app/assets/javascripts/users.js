@@ -16,6 +16,12 @@ $("#open_modal").click(function(){
   
 });
 
+$("#close_modal").click(function(){
+  $("#modal").dialog('close');
+  
+});
+
+
 //--------------
 
 var callbacks_password = $.Callbacks();

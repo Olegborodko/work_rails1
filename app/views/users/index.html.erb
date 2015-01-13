@@ -7,8 +7,10 @@
 <br/><br/>
 <%#= link_to "Edit personal information", edit_user_url(session[:user_id]) %>
 
-<div id='open_modal'>Edit personal information
+<div id='open_modal' class="btn btn-primary">Edit personal information
 </div>
+
+
 
 <%= render partial: "partial/form_user_ajax" %>
 
@@ -17,4 +19,3 @@
    <%= link_to "Log in", new_session_url %>
   <% end %>
 </div>
-
