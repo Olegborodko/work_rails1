@@ -13,7 +13,7 @@ $("#modal").dialog({ title: 'Edit user' });
 
 $("#open_modal").click(function(){
   $("#modal").dialog('open');
-  
+  $(".error_messages").html('');
 });
 
 $("#close_modal").click(function(){

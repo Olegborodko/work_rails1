@@ -41,6 +41,7 @@ before_filter :find_user, only: [:edit, :update]
     
     respond_to do |format|
       if @user.errors.empty?
+        
         format.js{@rezult=true}
       else
         format.js{@rezult=false}
