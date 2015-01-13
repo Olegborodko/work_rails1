@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 before_filter :find_user, only: [:edit, :update]
 
   def index
-
+@user = User.find(current_user.id) if current_user
   end
 
   def edit
