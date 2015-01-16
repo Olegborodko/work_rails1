@@ -21,7 +21,7 @@ $("#close_modal").click(function(){
   
 });
 
-
+//.modal('hide')
 //--------------
 
 var callbacks_password = $.Callbacks();
@@ -89,9 +89,10 @@ var params=
 "&email_form_ch=" + $('#email_form').attr('value');
 
 $.ajax({
-url: 'validation_ajax',
+url: 'validation_aj',
 data: params,
 type: 'POST',
+dataType: "script",
 success: function(result){
 $("#email_form_rezult").html(result);
 

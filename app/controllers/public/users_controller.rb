@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Public::UsersController < ApplicationController
 before_filter :find_user, only: [:edit, :update]
 
   def index
@@ -18,14 +18,14 @@ before_filter :find_user, only: [:edit, :update]
     @data=User.new(email: params['email_form'])
     @data.valid?
 
-    if current_user && params['email_form']==params['email_form_ch']
-      #редактируем страницу, и два параметра равны
+    if current_user && (params['email_form']==params['email_form_ch'])
+      
       render :text => "V"
       return
     end
 
     if @data.errors[:email].length==0
-      #если нет ошибок валидации
+      
       render :text => "V"
       return
     else

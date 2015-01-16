@@ -1,0 +1,13 @@
+<% if @rezult %>
+
+$('#close_modal').trigger('click');
+
+//('.ui-dialog-content').dialog().dialog('close');
+
+//$("#modal").dialog().dialog("close");
+//$("#modal").closest('.ui-dialog-content').dialog('close');
+
+<% else %>
+
+$(".error_messages").html('information not valid');
+<% end %>
