@@ -1,24 +1,26 @@
 WorkRails1::Application.routes.draw do
 
 
-  post 'validation_ajax' => 'users#validation_ajax'
-  post 'validation_aj' => 'users#validation_ajax'
-  ##resources :users
-  ##resources :sessions
+	post 'validation_ajax' => 'public/users#validation_ajax'
+	post 'validation_aj' => 'public/users#validation_ajax'
+	##resources :users
+	##resources :sessions
 
-  namespace :public do
 
-  get "sessions/new"
 
-  root :to => "users#index"
+	scope "public" do
+  #namespace :public do
+	#get "sessions/new"
 
-  post 'users/validation_ajax'
-  post 'users/validation_aj' => 'users#validation_ajax'
-  post 'users/:id/validation_aj' => 'users#validation_ajax'
-  
+	root :to => "public/users#index"
 
-  resources :users
-  resources :sessions
-  end
-  
+	post 'users/validation_ajax'
+	post 'users/validation_aj' => 'public/users#validation_ajax'
+	post 'users/:id/validation_aj' => 'public/users#validation_ajax'
+	
+
+	resources :users, controller:"public/users"
+	resources :sessions, controller:"public/sessions"
+	end
+	
 end
