@@ -1,0 +1,14 @@
+
+
+<div id="user_nav">
+  <% if current_admin %>
+    Logged in as <%= current_admin.email %>
+<%= link_to("Log out",  admin_session_url(session[:admin_id]), method: :delete) %>
+<br/><br/>
+
+
+  <% else %>
+     <%= link_to "Sign Up", new_admin_administrator_url %> or 
+   <%= link_to "Log in", new_admin_session_url %>
+  <% end %>
+</div>
