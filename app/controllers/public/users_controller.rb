@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Public::UsersController < ApplicationController
 before_filter :find_user, only: [:edit, :update]
 

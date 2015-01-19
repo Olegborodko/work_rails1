@@ -9,16 +9,13 @@ WorkRails1::Application.routes.draw do
   root :to => "public/users#index"
 
 	scope "public" do
-  #namespace :public do		
-
+  	get '/' => 'public/users#index'
 		resources :users, controller:"public/users"
 		resources :sessions, controller:"public/sessions"
 	end
 
 	namespace :admin do 
-
 		get '/' => 'administrators#index'
-
 		resources :administrators
 		resources :sessions
 	end

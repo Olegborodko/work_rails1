@@ -3,3 +3,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 */
+
+div.panel{width: 30%;margin-top:10px;}
+
+div.panel-heading{
+	font-size: 20px;
+	font-style: italic;
+}
+
+li.list-group-item{
+	font-weight: normal;
+}
+
+li.list-group-item span{
+	font-size: 14px;
+	font-style: italic;
+	font-weight: bold;
+	margin-right: 20px;
+}

@@ -11,7 +11,20 @@
 </div>
 
 
+<div class="panel panel-default" id="user_ajax_result">
+  <div class="panel-heading">User</div>
+<ul class="list-group">
+  <li class="list-group-item"><span>email:</span><%= @user[:email] %></li>
+  <li class="list-group-item"><span>first name:</span><%= @user[:first_name] %></li>
+  <li class="list-group-item"><span>last name:</span><%= @user[:last_name] %></li>
+  <li class="list-group-item"><span>information:</span><%= @user[:information] %></li>
+</ul>
+</div>
+
+
+
 <%= render partial: "public/partial/form_user_ajax" %>
+
 
   <% else %>
      <%= link_to "Sign Up", new_user_url %> or 

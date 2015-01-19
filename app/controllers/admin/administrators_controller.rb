@@ -2,7 +2,7 @@ class Admin::AdministratorsController < ApplicationController
 	before_filter :find_user, only: [:edit, :update]
 
   def index
-   @user = Admin.find(current_user.id) if current_user
+   @user = Admin.find(current_admin.id) if current_admin
   end
 
   def edit

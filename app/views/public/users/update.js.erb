@@ -6,6 +6,16 @@ $('#close_modal').trigger('click');
 
 //$("#modal").dialog().dialog("close");
 //$("#modal").closest('.ui-dialog-content').dialog('close');
+var text_ajax="<div class='panel-heading'>User</div>\
+<ul class='list-group'>\
+  <li class='list-group-item'><span>email:</span><%= @user[:email] %></li>\
+  <li class='list-group-item'><span>first name:</span><%= @user[:first_name] %></li>\
+  <li class='list-group-item'><span>last name:</span><%= @user[:last_name] %></li>\
+  <li class='list-group-item'><span>information:</span><%= @user[:information] %></li>\
+</ul>"
+
+
+$("#user_ajax_result").html(text_ajax);
 
 <% else %>
 
