@@ -21,3 +21,10 @@ li.list-group-item span{
 	font-weight: bold;
 	margin-right: 20px;
 }
+
+table.table-striped td.title{
+font-size: 14px;
+	font-style: italic;
+	font-weight: bold;
+	margin-right: 20px;
+}

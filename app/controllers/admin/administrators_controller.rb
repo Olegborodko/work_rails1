@@ -2,7 +2,8 @@ class Admin::AdministratorsController < ApplicationController
 	before_filter :find_user, only: [:edit, :update]
 
   def index
-   @user = Admin.find(current_admin.id) if current_admin
+   #@user = Admin.find(current_admin.id) if current_admin
+   @users=User.all
   end
 
   def edit
@@ -40,6 +41,10 @@ class Admin::AdministratorsController < ApplicationController
     else
       render "new"
     end
+  end
+
+  def destroy
+    render text:'123'
   end
 
   private
