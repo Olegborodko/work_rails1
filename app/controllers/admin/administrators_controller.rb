@@ -1,9 +1,11 @@
 class Admin::AdministratorsController < ApplicationController
 	before_filter :find_user, only: [:edit, :update]
+  before_filter :authorize, only: [:destroy]
 
   def index
    #@user = Admin.find(current_admin.id) if current_admin
    @users=User.all
+
   end
 
   def edit
@@ -15,17 +17,6 @@ class Admin::AdministratorsController < ApplicationController
 	end
 
   def update
-    
-    @user.update_attributes(params[:user])
-    
-    respond_to do |format|
-      if @user.errors.empty?
-        
-        format.js{@rezult=true}
-      else
-        format.js{@rezult=false}
-      end
-    end
 
   end
 
@@ -44,7 +35,11 @@ class Admin::AdministratorsController < ApplicationController
   end
 
   def destroy
-    render text:'123'
+    #session[:admin_id] = nil
+    #redirect_to admin_url, :notice => "Logged out!"
+    @user = User.find(params[:id])
+    @user.delete
+    redirect_to admin_url
   end
 
   private
