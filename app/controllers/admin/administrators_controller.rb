@@ -1,10 +1,16 @@
 class Admin::AdministratorsController < ApplicationController
 	before_filter :find_user, only: [:edit, :update]
-  before_filter :authorize, only: [:destroy]
+  #before_filter :authorize, only: [:destroy]
+
+  load_and_authorize_resource :admin, :parent => false
+
 
   def index
-   #@user = Admin.find(current_admin.id) if current_admin
+
+   
    @users=User.all
+   @admins=Admin.all
+   #render text: '111'
 
   end
 
@@ -46,4 +52,5 @@ class Admin::AdministratorsController < ApplicationController
     def find_user
       @user = Admin.find(params[:id])
     end
+
 end

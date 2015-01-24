@@ -1,0 +1,2 @@
+module Superadmin::SadminHelper
+end

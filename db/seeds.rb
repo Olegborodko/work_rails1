@@ -14,5 +14,12 @@ r=Role.new(name: 'super_admin')
 r.admin=a
 r.save
 
+a=Admin.create(email:'2@2.ua', first_name: '2', last_name:'2', password:'2', password_confirmation:'2');
+r=Role.new(name: 'admin')
+a.role=r
+r.save
+
+
+
 #Role.create(name:'admin')
 

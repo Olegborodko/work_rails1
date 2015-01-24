@@ -1,4 +1,5 @@
 class Admin < ActiveRecord::Base
+
   require "./lib/Mymodule.rb"
   include My_M
 

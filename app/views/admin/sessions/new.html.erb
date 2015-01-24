@@ -1,6 +1,6 @@
 
 
-<h1>Log in</h1>
+<h1>Log in for admin</h1>
 
 <div class="error_messages">
 <% if flash[:alert] %>
@@ -18,7 +18,7 @@
     <%= password_field_tag :password %>
   </p>
   <%= submit_tag 'Save changes', class:"btn btn-primary" %> 
-  <%= link_to "Cancel", admin_url, class:"btn btn-primary" %>
+  <%= link_to "Cancel", root_url, class:"btn btn-primary" %>
 <% end %>
 
 
