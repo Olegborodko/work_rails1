@@ -46,7 +46,7 @@ class Superadmin::SadminController < ApplicationController
   end
 
 	def destroy
-    @user.delete
+    @user.destroy
     redirect_to superadmin_sadmin_index_url
   end
 

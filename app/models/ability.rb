@@ -10,7 +10,7 @@ class Ability
 
       user ||= Admin.new # guest user (not logged in)
 
-      return if !user.role
+      return if !user.role  
 
       if user.role.name=="super_admin"
 
@@ -24,11 +24,7 @@ class Ability
 
       elsif user.role.name=="admin"
 
-        can :index, Admin
-
-      else
-
-       # can :manage, :all
+        can :manage, User
 
       end
 

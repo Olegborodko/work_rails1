@@ -1,12 +1,8 @@
 class User < ActiveRecord::Base
-  require "./lib/Mymodule.rb"
   include My_M
 
    attr_accessible :last_name,:first_name,
   :email,:password,:information,:password_confirmation
-
-  validates :password, confirmation: true
-  validates :password_confirmation, presence: true
 
   attr_accessor :password
 
@@ -15,7 +11,11 @@ class User < ActiveRecord::Base
 
   validates :email, :format => {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}, :uniqueness => true
 
-  before_save :encrypt_password
+  validates :password, confirmation: true, on: :create 
+  validates :password_confirmation, presence: true, on: :create 
+  
+  before_save :encrypt_password, on: :create 
+
 
 
 end
