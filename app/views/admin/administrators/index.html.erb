@@ -1,40 +1,8 @@
-
-
 <div id="user_nav">
-
-  <% if can? :manage, :all 
-  concat('Logged in as super_admin')
-
-  concat(link_to("Log out",  admin_session_url(session[:admin_id]), method: :delete))%>
-
-
- 	<br/>
- 	<br/>
- 	<%= link_to "Add Admin", new_admin_administrator_url %>
- 	<br/>
- 	<br/>
- 	<%= link_to "Edit Admin", edit_admin_administrator_url(1) %>
- 
- 	<%= render partial: "admin/partial/users_all" %>
-
-
-
-
-
-	
-
-	<% elsif can? :index, Admin %>
 		 Logged in as <%= current_admin.email %>
 
 		<%= link_to("Log out",  admin_session_url(session[:admin_id]), method: :delete) %>
 
-
-
-
-
-	<% end %>
-
-	<%= render partial: "admin/partial/users_all" %>
-
+		<%= render partial: "admin/partial/users_all" %>
 
 </div>

@@ -1,0 +1,14 @@
+<div id="user_nav">
+
+  <% 
+  concat('Logged in as super_admin')
+
+  concat(link_to("Log out",  admin_session_url(session[:admin_id]), method: :delete)) %>
+ 	<br/>
+ 	<br/>
+  <%= link_to "Add Admin", new_superadmin_sadmin_url %>
+ 	<br/>
+ 	<br/>
+ 	<%= render partial: "superadmin/partial/users_all" %>
+
+</div>

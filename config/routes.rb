@@ -19,5 +19,9 @@ WorkRails1::Application.routes.draw do
 		resources :administrators
 		resources :sessions
 	end
+
+	namespace :superadmin do
+		resources :sadmin
+	end
 	
 end

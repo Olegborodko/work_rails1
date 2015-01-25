@@ -7,15 +7,17 @@ class Admin::AdministratorsController < ApplicationController
 
   def index
 
-   
-   @users=User.all
-   @admins=Admin.all
-   #render text: '111'
+    if can? :manage, :all 
+      redirect_to superadmin_sadmin_index_url
+    else 
+      @users=User.all
+
+    end
 
   end
 
   def edit
-    
+
   end
 
 	def new
@@ -27,17 +29,7 @@ class Admin::AdministratorsController < ApplicationController
   end
 
   def create
-    @user = Admin.new(params[:admin]) #?
-    if @user.save
-
-      session[:admin_id] = @user.id
-
-      redirect_to admin_url, :notice => "Signed up!"
-
-
-    else
-      render "new"
-    end
+    
   end
 
   def destroy
