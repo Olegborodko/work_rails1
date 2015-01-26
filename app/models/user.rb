@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, on: :update, if: "password_change"
   
   validates :secret, presence: true, on: :create
+  
   before_save :encrypt_password, on: :create 
   before_save :encrypt_secret_word, on: :create
 
@@ -27,6 +28,15 @@ class User < ActiveRecord::Base
         self.secret_word_salt = BCrypt::Engine.generate_salt
         self.secret_word = BCrypt::Engine.hash_secret(secret, secret_word_salt)
       end
+    end
+
+    def secret_word?(secret)
+
+        if self.secret_word == BCrypt::Engine.hash_secret(secret, self.secret_word_salt)
+          true
+        else
+          false
+        end
     end
 
 end

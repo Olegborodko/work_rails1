@@ -3,9 +3,7 @@
 <h1>Log in</h1>
 
 <div class="error_messages">
-<% if flash[:alert] %>
 <%= flash[:alert] %>
-<% end %>
 </div>
 
 <%= form_tag sessions_path do %>

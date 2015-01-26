@@ -2,31 +2,31 @@
 
   <p>
     <%= label_tag :email %><br />
-    <%= text_field_tag :email %>
+    <%= text_field_tag "user[email]" %>
     </p>
   <p>
     <%= label_tag :first_name %><br />
-    <%= text_field_tag :first_name %>
+    <%= text_field_tag "user[first_name]" %>
     </p>
 
   <p>
     <%= label_tag :last_name %><br />
-    <%= text_field_tag :last_name %>
+    <%= text_field_tag "user[last_name]" %>
     </p>
 
   <p>
     <%= label_tag :secret_word %><br />
-    <%= text_field_tag :secret_word %>
+    <%= text_field_tag "user[secret]" %>
    </p>
 
      <p>
     <%= label_tag 'new password' %><br />
-    <%= text_field_tag :password %>
+    <%= text_field_tag "user[password]" %>
    </p>
 
      <p>
     <%= label_tag 'new password confirmation' %><br />
-    <%= text_field_tag :password_confirmation %>
+    <%= text_field_tag "user[password_confirmation]" %>
    </p>
 
 
