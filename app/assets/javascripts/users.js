@@ -44,6 +44,8 @@ $("#first_name_form").change(validation_presence);
 
 $("#last_name_form").change(validation_presence);
 
+$("#secret").change(validation_presence);
+
 //--------------
 
 function validation_presence(){

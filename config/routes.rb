@@ -12,6 +12,8 @@ WorkRails1::Application.routes.draw do
   	get '/' => 'public/users#index'
 		resources :users, controller:"public/users"
 		resources :sessions, controller:"public/sessions"
+
+		resources :recover_password, controller:"public/recover_password"
 	end
 
 	namespace :admin do 

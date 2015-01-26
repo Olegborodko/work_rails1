@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150124103836) do
+ActiveRecord::Schema.define(:version => 20150126144457) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -36,10 +36,12 @@ ActiveRecord::Schema.define(:version => 20150124103836) do
     t.string   "first_name"
     t.string   "last_name"
     t.text     "information"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "password_salt"
     t.string   "password_hash"
+    t.string   "secret_word"
+    t.string   "secret_word_salt"
   end
 
 end

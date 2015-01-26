@@ -17,6 +17,12 @@
     <span id='password_confirmation_form_rezult'></span>
     </p>
 
+    <p>
+    <%= f.label 'secret word' %><br />
+    <%= f.text_field :secret, id: 'secret' %>
+    <span id='secret_rezult'></span>
+    </p>
+
   <p>
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name, id: 'first_name_form' %>

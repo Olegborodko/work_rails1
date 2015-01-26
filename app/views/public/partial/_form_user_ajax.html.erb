@@ -37,6 +37,7 @@
     <%= f.label :information %><br />
     <%= f.text_area :information, size: "30x3", id: 'area_form' %></p>
 
+    <%= f.hidden_field :password_change, :value => :true %>
 
    <%= f.submit class:"btn btn-primary" %>
 
