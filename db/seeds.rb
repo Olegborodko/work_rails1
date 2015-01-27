@@ -10,17 +10,17 @@ Admin.delete_all
 Role.delete_all
 User.delete_all
 
-a=Admin.create(email:'s@s.ua', first_name: '1', last_name:'1', password:'s', password_confirmation:'s');
-r=Role.new(name: 'super_admin')
-r.admin=a
-r.save
-
-a=Admin.create(email:'2@2.ua', first_name: '2', last_name:'2', password:'2', password_confirmation:'2');
-r=Role.new(name: 'admin')
+a=Admin.new(email:'s@s.ua', first_name: '1', last_name:'1', password:'s', password_confirmation:'s');
+r=Role.create(name: 'super_admin')
 a.role=r
-r.save
+a.save
 
-User.create(email:'1@1.ua', first_name: 'u', last_name:'u', password:'1', password_confirmation:'1');
+a=Admin.new(email:'2@2.ua', first_name: '2', last_name:'2', password:'2', password_confirmation:'2');
+r=Role.create(name: 'admin')
+a.role=r
+a.save
+
+User.create(email:'1@1.ua', first_name: 'u', last_name:'u', password:'1', password_confirmation:'1', secret: '111');
 
 #Role.create(name:'admin')
 

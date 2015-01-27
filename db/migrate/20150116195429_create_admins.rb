@@ -7,6 +7,7 @@ class CreateAdmins < ActiveRecord::Migration
     t.text     "information"
     t.string   "password_salt"
     t.string   "password_hash"
+    t.integer  "role_id"
       t.timestamps
     end
   end

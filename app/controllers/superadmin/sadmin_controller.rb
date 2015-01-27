@@ -20,15 +20,17 @@ class Superadmin::SadminController < ApplicationController
 	def create
 		@user = Admin.new(params[:admin])
 
-		@user.role=Role.new(name:'admin')
+		@user.role=Role.where(name:'admin').first
 
-    if @user.save
+		#@user.role=r[:id]
 
-      redirect_to superadmin_sadmin_index_url, :notice => "Signed up!"
+     if @user.save
 
-    else
-      render "new"
-    end
+       redirect_to superadmin_sadmin_index_url, :notice => "Signed up!"
+
+     else
+       render "new"
+     end
 	end
 
 	def edit
@@ -46,7 +48,7 @@ class Superadmin::SadminController < ApplicationController
   end
 
 	def destroy
-    @user.destroy
+    @user.delete
     redirect_to superadmin_sadmin_index_url
   end
 

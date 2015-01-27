@@ -18,13 +18,21 @@ class Public::RecoverPasswordController < ApplicationController
 
 		    @user.update_attributes(params[:user])
 
+		    if @user.errors.empty?        
+        	flash[:alert]='you password change'
+      	else
+        	flash[:alert]='sorry, information about you is not correct'
+      	end
+
 		    #render json:  @user.secret_word?(params[:user][:secret])
-		    redirect_to new_session_url, flash: { alert: 'you password change'}
+		    
 
 		else
 
-				redirect_to new_session_url, alert: 'sorry, information about you is not correct'
+				flash[:alert]='sorry, information about you is not correct'
 		end
+
+		redirect_to new_session_url 
 
 	end
 

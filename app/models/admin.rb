@@ -2,7 +2,7 @@ class Admin < ActiveRecord::Base
 
   include My_M
 
-  has_one :role, :dependent => :destroy
+  belongs_to :role
 
   attr_accessible :last_name,:first_name,
   :email,:password,:information,:password_confirmation
