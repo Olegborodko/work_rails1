@@ -15,8 +15,8 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true, on: :create
   validates :password_confirmation, presence: true, on: :create
 
-  validates :password, confirmation: true, on: :update, if: "password_change"
-  validates :password_confirmation, presence: true, on: :update, if: "password_change"
+  validates :password, confirmation: true, on: :update, if: "password"
+  validates :password_confirmation, presence: true, on: :update, if: "password"
   
   validates :secret, presence: true, on: :create
   

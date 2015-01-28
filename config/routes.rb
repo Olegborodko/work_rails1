@@ -5,6 +5,8 @@ WorkRails1::Application.routes.draw do
 	post 'validation_aj' => 'public/users#validation_ajax'
 	post 'public/users/validation_ajax'
 	post 'public/users/validation_aj' => 'public/users#validation_ajax'
+	post 'public/validation_aj'=> 'public/users#validation_ajax'
+	post 'public/validation_ajax'=> 'public/users#validation_ajax'
 
   root :to => "public/users#index"
 

@@ -1,0 +1,7 @@
+<% if @rezult==true %>
+$("#admin_all_").html('<%=j render 'admin/partial/users_all_ajax' %>');
+
+<% else %>
+$("#admin_all_").html('<%=j render 'admin/partial/edit' %>');
+
+<% end %>

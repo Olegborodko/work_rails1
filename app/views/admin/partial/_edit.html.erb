@@ -1,4 +1,6 @@
-<%= form_for @user, url: admin_administrator_url  do |f| %>
+<%= render partial: "admin/partial/errors", locals: {my_error: @user} %>
+
+<%= form_for @user, url: admin_administrator_url, remote: true do |f| %>
 
   <p>
 
@@ -22,6 +24,6 @@
 
    <%= f.submit class:"btn btn-primary" %>
 
-   <%= link_to "Cancel", admin_url, class:"btn btn-primary" %>
+   <%= link_to "Cancel", admin_url, remote: true, class:"btn btn-primary" %>
 
 <% end %>
