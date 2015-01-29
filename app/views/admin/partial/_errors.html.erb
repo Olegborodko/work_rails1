@@ -1,7 +1,7 @@
  <div class="error_messages">
- <% if my_error.errors.any? %>
+ <% if @user.errors.any? %>
 
-        <% for message in my_error.errors.full_messages %>
+        <% for message in @user.errors.full_messages %>
          <%= message %><br/>
         <% end %>
 

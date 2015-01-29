@@ -21,17 +21,23 @@ class Admin::AdministratorsController < ApplicationController
 
   def update
     @user.update_attributes(params[:user])
-    
-      if @user.errors.empty?        
-        redirect_to admin_url
+
+    respond_to do |format|
+      if @user.errors.empty?   
+        @users=User.all
+        format.js{@rezult=true}
+        format.html{redirect_to admin_url}
       else
-        render "edit"
+        format.js{@rezult=false}
+        format.html{render "edit"}
       end
+    end
   end
+
 
   def destroy
     @user.delete
-    redirect_to admin_url
+    @users=User.all
   end
 
   private
