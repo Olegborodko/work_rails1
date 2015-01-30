@@ -21,16 +21,16 @@ before_filter :find_user, only: [:edit, :update]
 
     if current_user && (params['email_form']==params['email_form_ch'])
       
-      render :text => "V"
+      render :js => "response_='V'"
       return
     end
 
     if @data.errors[:email].length==0
       
-      render :text => "V"
+      render :js => "response_='V'"
       return
     else
-      render :inline => "<%= @data.errors[:email].first %>"
+      render :inline => "response_='<%= @data.errors[:email].first %>'"
       return
     end  
 
