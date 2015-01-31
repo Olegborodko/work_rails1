@@ -22,7 +22,6 @@ WorkRails1::Application.routes.draw do
 		get '/' => 'administrators#index'
 		resources :administrators
 		resources :sessions
-
 	end
 
 	namespace :superadmin do

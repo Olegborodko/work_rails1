@@ -3,7 +3,7 @@
 
 		<%= link_to("Log out",  admin_session_url(session[:admin_id]), method: :delete) %>
 
-		<div class="panel panel-default" id="admin_all_">
+		<div id="admin_all_">
 		<%= render partial: "admin/partial/users_all_ajax" %>
 		</div>
 

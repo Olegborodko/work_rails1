@@ -1,7 +1,7 @@
 class Admin::AdministratorsController < ApplicationController
 	before_filter :find_user, only: [:edit, :update, :destroy]
 
-  load_and_authorize_resource :user, :parent => false
+  load_and_authorize_resource :user, except:[:show], :parent => false
 
 
   def index
@@ -13,6 +13,16 @@ class Admin::AdministratorsController < ApplicationController
 
     end
 
+  end
+
+  def show
+    if params[:id]
+
+     @s=params[:id].split(',')
+
+     @users=User.order("#{@s[0]} #{@s[1]}")
+  
+    end
   end
 
   def edit

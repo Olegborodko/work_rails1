@@ -1,25 +1,63 @@
+
+
+
+<div class="panel panel-default" style="width:700px">
   	<div class="panel-heading">Users</div>
 		<table class="table table-striped">
-
 <tr>
 <td class='title'>
-Email
+
+<%= link_to 'Email', admin_administrator_url('email,ASC'), id:'email_title',title:'up',remote: true %>
+</td>
+
+<td class='title'>
+
+<%= link_to 'Last name', admin_administrator_url('last_name,ASC'), id:'last_name_title', title:'up', remote: true %>
+
 </td>
 <td class='title'>
-Last name
+
+<%= link_to 'First name', admin_administrator_url('first_name,ASC'), id:'first_name_title',title:'up', remote: true %>
+
 </td>
 <td class='title'>
 Delete
 </td>
 </tr>
+<tr>
+<td colspan='4'>
 
 
+<ul id="sortable" style=" 
+			list-style-type:none;
+			list-style-position: outside;
+			 margin: 0; 
+    padding: 0;">
 <% @users.each do |key| %>
-<tr><td> <%= link_to(key[:email], edit_admin_administrator_url(key[:id]), remote: true) %>
-		 </td><td> <%= key[:last_name] %> </td><td>
-<%= link_to('X', admin_administrator_url(key[:id]), method: :delete, remote: true) %>
-</td></tr>
+
+<li class="ui-state-default">
+
+
+<span style="float:left;display:block;width:25%;padding:0 10px 0 10px; ">
+ <%= link_to(key[:email], edit_admin_administrator_url(key[:id]), remote: true,style:"color: #337ab7;") %>
+</span>
+<span style="float:left;display:block;width:25%;padding:0 10px 0 10px; ">
+<%= key[:last_name] %>
+</span>
+<span style="float:right;display:block;width:25%;text-align:center;padding:0 10px 0 10px;">
+<%= link_to('X', admin_administrator_url(key[:id]), method: :delete, remote: true,style:"color: #337ab7;") %>
+</span>
+<span>
+
+<%= key[:first_name] %>
+</span>
+
 
 <% end %>
 
+</ul>
+
+</td>
+</tr>
 </table>
+</div>

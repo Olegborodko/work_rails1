@@ -22,6 +22,16 @@
 
 jQuery(function($) {
 
+  //разнеси скрипт по папкам
+
+  $(function(){
+        $("#sortable").sortable({
+            placeholder: "ui-state-highlight"
+            
+          });
+});
+
+
   $("#modal").dialog({ autoOpen: false });
 $("#modal").dialog({ show: 'fold' });
 $("#modal").dialog({ hide: 'slide' });

@@ -19,3 +19,13 @@ div.error_messages{
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+ul.ui-sortable {  color:#eee; 
+			list-style-type:none;
+			list-style-position: outside;
+			 margin: 0; 
+    padding: 0; 
+ }
+
+ul li {line-height:30px; height:30px; list-style-position: outside;margin-top:6px;}
