@@ -3,7 +3,8 @@
 *= require_self
 *= require_tree .
 */
-
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 
 div.container form{
@@ -17,11 +18,10 @@ div.error_messages{
 	padding:0 0 0 10px;
 }	
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
 
 
-ul.ui-sortable {  color:#eee; 
+
+#sortable {  color:#eee; 
 			list-style-type:none;
 			list-style-position: outside;
 			 margin: 0; 
@@ -29,3 +29,24 @@ ul.ui-sortable {  color:#eee;
  }
 
 ul li {line-height:30px; height:30px; list-style-position: outside;margin-top:6px;}
+
+#sortable li span.name{
+	float:left;
+	display:block;
+	width:25%;
+	padding-left:10px; 
+	text-align: left;
+}
+
+div.pagination a{
+	color:#337ab7 !important; 
+}
+
+
+ul li span a{
+	color: #337ab7 !important;
+}
+
+div.panel{
+	width:700px !important;
+}

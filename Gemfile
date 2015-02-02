@@ -37,6 +37,7 @@ gem "cancan"
 gem 'quiet_assets', group: :development
 gem 'thin'
 
+gem 'will_paginate', '~> 3.0.6'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

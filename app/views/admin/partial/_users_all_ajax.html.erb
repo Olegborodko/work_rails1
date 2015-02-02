@@ -1,7 +1,5 @@
 
-
-
-<div class="panel panel-default" style="width:700px">
+<div class="panel panel-default">
   	<div class="panel-heading">Users</div>
 		<table class="table table-striped">
 <tr>
@@ -28,32 +26,34 @@ Delete
 <td colspan='4'>
 
 
-<ul id="sortable" style=" 
-			list-style-type:none;
-			list-style-position: outside;
-			 margin: 0; 
-    padding: 0;">
+<ul id="sortable" >
+
 <% @users.each do |key| %>
 
 <li class="ui-state-default">
 
 
-<span style="float:left;display:block;width:25%;padding:0 10px 0 10px; ">
- <%= link_to(key[:email], edit_admin_administrator_url(key[:id]), remote: true,style:"color: #337ab7;") %>
+<span class='name'>
+ <%= link_to(key[:email], edit_admin_administrator_url(key[:id]), remote: true) %>
 </span>
-<span style="float:left;display:block;width:25%;padding:0 10px 0 10px; ">
+
+<span class='name'>
 <%= key[:last_name] %>
 </span>
-<span style="float:right;display:block;width:25%;text-align:center;padding:0 10px 0 10px;">
-<%= link_to('X', admin_administrator_url(key[:id]), method: :delete, remote: true,style:"color: #337ab7;") %>
-</span>
-<span>
 
+<span class='name'>
 <%= key[:first_name] %>
 </span>
 
+<span class='name'>
+<%= link_to('X', admin_administrator_url(key[:id]), method: :delete, remote: true) %>
+</span>
+
+
 
 <% end %>
+<br>
+<%= ajax_will_paginate @users %>
 
 </ul>
 

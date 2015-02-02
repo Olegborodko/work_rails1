@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   include My_M
 
+  self.per_page = 2
+
    attr_accessible :last_name,:first_name,
   :email,:password,:information,
   :password_confirmation, :secret, :password_change
