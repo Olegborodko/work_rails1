@@ -2,7 +2,7 @@
 
 <div class='error_messages'></div>
 
-<%= form_for @user , remote: true  do |f| %>
+<%= form_for @user , remote: true, :html => {:multipart => true}  do |f| %>
 
   <p>
 

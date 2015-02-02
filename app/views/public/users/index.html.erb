@@ -29,3 +29,11 @@
    <%= link_to "Log in", new_session_url %>
   <% end %>
 </div>
+
+<% if @profile %>
+<%=  image_tag @profile.avatar.url %>
+<br>
+<%=  image_tag @profile.avatar.thumb.url %>
+<% end %>
+
+<!-------------------------->

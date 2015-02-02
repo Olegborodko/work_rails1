@@ -3,7 +3,13 @@ class Public::UsersController < ApplicationController
 before_filter :find_user, only: [:edit, :update]
 
   def index
-    @user = User.find(current_user.id) if current_user
+    
+    if current_user
+      @user = User.find(current_user.id) 
+      @profile=@user.profile
+
+      # #render json: Profile.all
+    end
   end
 
   def edit
@@ -53,7 +59,17 @@ before_filter :find_user, only: [:edit, :update]
 
   def create
     @user = User.new(params[:user]) #?
+
+    @profile = Profile.new
+    @profile.user=@user
+    @profile.avatar = params[:user][:image]
+
+    #render json: params[:user][:image]
+    
+
     if @user.save
+
+      @profile.save
 
       session[:user_id] = @user.id
 

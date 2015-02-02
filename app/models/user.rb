@@ -1,13 +1,16 @@
 class User < ActiveRecord::Base
   include My_M
 
+  has_one :profile, dependent: :destroy
+
   self.per_page = 2
 
    attr_accessible :last_name,:first_name,
   :email,:password,:information,
-  :password_confirmation, :secret, :password_change
+  :password_confirmation, :secret, :password_change,
+  :image
 
-  attr_accessor :password, :secret, :password_change
+  attr_accessor :password, :secret, :password_change, :image
 
   validates :last_name,:first_name,
   :email, :presence => true
