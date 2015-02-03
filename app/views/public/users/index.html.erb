@@ -30,10 +30,12 @@
   <% end %>
 </div>
 
-<% if @profile %>
+<% if @profile and !@profile.avatar.to_s.empty? %>
 <%=  image_tag @profile.avatar.url %>
 <br>
 <%=  image_tag @profile.avatar.thumb.url %>
 <% end %>
+
+
 
 <!-------------------------->

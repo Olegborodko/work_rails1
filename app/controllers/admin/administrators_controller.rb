@@ -26,7 +26,7 @@ class Admin::AdministratorsController < ApplicationController
   end
 
   def edit
-
+    
   end
 
   def update
@@ -48,7 +48,8 @@ class Admin::AdministratorsController < ApplicationController
 
 
   def destroy
-    @user.delete
+    @user.destroy
+    session[:user_id] = nil #delete
     @users=all_user
   end
 
