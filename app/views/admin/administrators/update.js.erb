@@ -5,3 +5,11 @@ $("#admin_all_").html('<%=j render 'admin/partial/users_all_ajax' %>');
 $("#admin_all_").html('<%=j render 'admin/partial/edit' %>');
 
 <% end %>
+
+ $(function(){
+        $("#sortable").sortable({
+            placeholder: "ui-state-highlight"
+            
+          });
+});
+

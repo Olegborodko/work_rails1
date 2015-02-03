@@ -26,31 +26,32 @@ class Admin::AdministratorsController < ApplicationController
   end
 
   def edit
-    
+
   end
 
   def update
     @user.update_attributes(params[:user])
+    @users=all_user
 
-    respond_to do |format|
+     respond_to do |format|
       if @user.errors.empty?   
-
-        @users=all_user
-
-        format.js{@rezult=true}
-        format.html{redirect_to admin_url}
+    
+         format.js{@rezult=true}
+         format.html{redirect_to admin_url}
       else
-        format.js{@rezult=false}
-        format.html{render "edit"}
+    
+         format.js{@rezult=false}
+         format.html{render "edit"}
       end
-    end
+     end
   end
 
 
   def destroy
-    @user.destroy
-    session[:user_id] = nil #delete
+
     @users=all_user
+    @user.destroy
+    
   end
 
   private
