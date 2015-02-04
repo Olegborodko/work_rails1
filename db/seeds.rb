@@ -20,7 +20,7 @@ r=Role.create(name: 'admin')
 a.role=r
 a.save
 
-User.create(email:'1@1.ua', first_name: 'u', last_name:'u', password:'1', password_confirmation:'1', secret: '111');
+User.create(email:'1@1.ua', first_name: 'u', last_name:'u', password:'1', password_confirmation:'1', secret: '111', position: 1);
 
 #Role.create(name:'admin')
 

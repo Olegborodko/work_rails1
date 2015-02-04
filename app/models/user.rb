@@ -3,12 +3,12 @@ class User < ActiveRecord::Base
 
   has_one :profile, dependent: :destroy
 
-  self.per_page = 2
+  self.per_page = 5
 
    attr_accessible :last_name,:first_name,
   :email,:password,:information,
   :password_confirmation, :secret, :password_change,
-  :image
+  :image, :position
 
   attr_accessor :password, :secret, :password_change, :image
 

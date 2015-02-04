@@ -54,13 +54,40 @@ class Admin::AdministratorsController < ApplicationController
     
   end
 
+  def sort
+    @params=params['param1']
+
+    @params.select! {|x| x!="" } 
+
+
+      for value in @params  #min position
+        m=value.split('_')[2].to_i
+        min=m if !min
+        min=m if m<min
+      end
+
+     for value in @params
+      m=value.split('_')
+
+      user=User.find(m[1])
+      user.position=min
+      user.save
+      p user.position
+      p min
+
+      min=min+1
+
+     end
+
+  end
+
   private
     def find_user
       @user = User.find(params[:id])
     end
 
     def all_user
-      User.paginate(:page => params[:page])
+      User.order("position ASC").paginate(:page => params[:page])
     end
 
 

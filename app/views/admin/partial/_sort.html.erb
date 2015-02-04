@@ -1,6 +1,8 @@
+<%= javascript_include_tag "sortable" %>
+
 <% @users.each do |key| %>
 
-<li class="ui-state-default">
+<li class="ui-state-default" id="li_<%= key[:id] %>_<%= key[:position] %>">
 
 
 <span class='name'>
@@ -16,7 +18,7 @@
 </span>
 
 <span class='name'>
-<%= link_to('X', admin_administrator_url(key[:id]), method: :delete, remote: true) %>
+<%= link_to("delete element #{key[:position]}", admin_administrator_url(key[:id]), method: :delete, remote: true) %>
 </span>
 
 

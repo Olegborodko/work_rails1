@@ -8,6 +8,11 @@ WorkRails1::Application.routes.draw do
 	post 'public/validation_aj'=> 'public/users#validation_ajax'
 	post 'public/validation_ajax'=> 'public/users#validation_ajax'
 
+
+	post 'sort_bd' => 'admin/administrators#sort'
+	post 'admin/sort_bd' =>'admin/administrators#sort'
+
+
   root :to => "public/users#index"
 
 	scope "public" do

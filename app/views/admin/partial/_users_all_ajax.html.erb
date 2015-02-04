@@ -19,7 +19,7 @@
 
 </td>
 <td class='title'>
-Delete
+<%= link_to 'Position', admin_administrator_url('position,ASC'), id:'position_title',title:'up', remote: true %>
 </td>
 </tr>
 <tr>
@@ -28,35 +28,11 @@ Delete
 
 <ul id="sortable" >
 
-<% @users.each do |key| %>
+<%= render partial: "admin/partial/sort" %>
 
-<li class="ui-state-default">
-
-
-<span class='name'>
- <%= link_to(key[:email], edit_admin_administrator_url(key[:id]), remote: true) %>
-</span>
-
-<span class='name'>
-<%= key[:last_name] %>
-</span>
-
-<span class='name'>
-<%= key[:first_name] %>
-</span>
-
-<span class='name'>
-<%= link_to('X', admin_administrator_url(key[:id]), method: :delete, remote: true) %>
-</span>
-
-
-</li>
-<% end %>
-
-<br>
-<%= ajax_will_paginate @users, :params => { :my_excluded_param => nil } %>
-<%#= will_paginate @users %>
 </ul>
+<br>
+<div id='sort_view'></div>
 
 </td>
 </tr>

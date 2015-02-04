@@ -60,6 +60,12 @@ before_filter :find_user, only: [:edit, :update]
   def create
     @user = User.new(params[:user]) #?
 
+    if User.maximum(:position)
+      @user.position=User.maximum(:position)+1
+    else
+      @user.position=1
+    end
+
     @profile = Profile.new
     @profile.user=@user
     @profile.avatar = params[:user][:image]

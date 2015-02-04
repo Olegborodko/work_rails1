@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150202121614) do
+ActiveRecord::Schema.define(:version => 20150204145729) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20150202121614) do
     t.string   "password_hash"
     t.string   "secret_word"
     t.string   "secret_word_salt"
+    t.integer  "position"
   end
 
 end
