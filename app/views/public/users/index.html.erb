@@ -25,7 +25,7 @@
 
 
   <% else %>
-     <%= link_to "Sign Up", new_user_url %> or 
+     <%= link_to "Sign Up", new_user_url %> or
    <%= link_to "Log in", new_session_url %>
   <% end %>
 </div>
@@ -35,7 +35,13 @@
 <br>
 <%=  image_tag @profile.avatar.thumb.url %>
 <% end %>
-
-
-
 <!-------------------------->
+
+<%= form_for User.new, :url => uploads_path, html: { multipart: true } do |f| %>
+  <%= f.label :uploaded_file, t('.upload_new_file') %>
+  <%= f.file_field :uploaded_file, multiple: true, name: 'upload[uploaded_file]' %>
+  <%= f.submit t(:save), class: 'btn' %>
+<% end %>
+
+<% # jquery upload template # %>
+<script id="template-upload" type="text/x-tmpl"><div class="upload">{%=o.name%}<div class="progress"><div class="bar" style="width: 0%"></div></div></div></script>

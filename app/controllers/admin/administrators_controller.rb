@@ -6,9 +6,9 @@ class Admin::AdministratorsController < ApplicationController
 
   def index
 
-    if can? :manage, Admin 
+    if can? :manage, Admin
       redirect_to superadmin_sadmin_index_url
-    else 
+    else
 
       @users = all_user
     end
@@ -18,10 +18,10 @@ class Admin::AdministratorsController < ApplicationController
   def show
     if params[:id]
 
-     @s=params[:id].split(',')
+     @sort=params[:id].split(',')
 
-     @users=User.order("#{@s[0]} #{@s[1]}").paginate(:page => params[:page])
-  
+     @users=User.order("#{@sort[0]} #{@sort[1]}").paginate(:page => params[:page])
+
     end
   end
 
@@ -34,12 +34,12 @@ class Admin::AdministratorsController < ApplicationController
     @users=all_user
 
      respond_to do |format|
-      if @user.errors.empty?   
-    
+      if @user.errors.empty?
+
          format.js{@rezult=true}
          format.html{redirect_to admin_url}
       else
-    
+
          format.js{@rezult=false}
          format.html{render "edit"}
       end
@@ -51,31 +51,63 @@ class Admin::AdministratorsController < ApplicationController
 
     @users=all_user
     @user.destroy
-    
+
   end
 
   def sort
     @params=params['param1']
 
-    @params.select! {|x| x!="" } 
+    @params.select! {|x| x!="" }
+
+    return if @params.first.split('_')[3] != 'position'
 
 
-      for value in @params  #min position
+    if @params.first.split('_')[4] == 'ASC'
+      sort_up_to_down=true
+    else
+      sort_up_to_down=false
+    end
+
+#-----------------------------
+
+    if sort_up_to_down
+      #min
+
+       for value in @params
         m=value.split('_')[2].to_i
         min=m if !min
         min=m if m<min
       end
 
+    else
+      #max
+
+      for value in @params
+        m=value.split('_')[2].to_i
+        max=m if !max
+        max=m if m>max
+      end
+
+    end
+
+#-----------------------------
+
      for value in @params
       m=value.split('_')
 
       user=User.find(m[1])
-      user.position=min
+
+        if sort_up_to_down
+          user.position=min
+          min=min+1
+        else
+          user.position=max
+          max=max-1
+        end
+      
       user.save
       p user.position
-      p min
 
-      min=min+1
 
      end
 

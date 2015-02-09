@@ -1,8 +1,14 @@
 <%= javascript_include_tag "sortable" %>
 
+<% if !@sort
+	@sort=[]
+  @sort[0]='position'
+  @sort[1]='ASC'
+	end %>
+
 <% @users.each do |key| %>
 
-<li class="ui-state-default" id="li_<%= key[:id] %>_<%= key[:position] %>">
+<li class="ui-state-default" id="li_<%= key[:id] %>_<%= key[:position] %>_<%= @sort[0] %>_<%= @sort[1] %>">
 
 
 <span class='name'>

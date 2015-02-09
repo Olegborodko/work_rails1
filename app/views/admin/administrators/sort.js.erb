@@ -10,4 +10,12 @@ function checkTime(i)
 
 var t = new Date();
 
+<% if @params.first.split('_')[3] != 'position' %>
+
+$("#sort_view").html('Select referens position and move element for save bd')
+
+<% else %>
+
 $("#sort_view").html("Update position in "+checkTime(t.getHours())+"."+checkTime(t.getMinutes())+"."+checkTime(t.getSeconds()))
+
+<% end %>

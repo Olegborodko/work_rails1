@@ -1,15 +1,15 @@
 $("#sortable").html('<%=j render 'admin/partial/sort' %>');
 
-id="#<%=@s[0]%>_title";
+id="#<%=@sort[0]%>_title";
 
 if ($(id).attr('title')=='up'){
 
-	<% s="#{@s[0]},DESC" %>
+	<% s="#{@sort[0]},DESC" %>
 $(id).attr("href","<%= admin_administrator_url(s) %>");
 $(id).attr('title','down');
 }else
 {
-<% s="#{@s[0]},ASC" %>
+<% s="#{@sort[0]},ASC" %>
 $(id).attr("href","<%= admin_administrator_url(s) %>");
 $(id).attr('title','up');
 }

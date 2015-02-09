@@ -12,7 +12,7 @@
 //
 //= require jquery
 
-//= require_tree .
+
 
 //= require jquery_ujs
 
@@ -20,7 +20,29 @@
 
 //= require jquery.ui.all
 
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
+
+//= require_tree .
+
 jQuery(function($) {
+
+$(function () {
+    $('#fileupload').fileupload({
+        dataType: 'json',
+        add: function (e, data) {
+            data.context = $('<button/>').text('Upload')
+                .appendTo(document.body)
+                .click(function () {
+                    data.context = $('<p/>').text('Uploading...').replaceAll($(this));
+                    data.submit();
+                });
+        },
+        done: function (e, data) {
+            data.context.text('Upload finished.');
+        }
+    });
+});
 
 
   $("#modal").dialog({ autoOpen: false });
