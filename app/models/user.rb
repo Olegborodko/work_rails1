@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
   include My_M
 
-  has_one :profile, dependent: :destroy
+   has_one :profile, dependent: :destroy
 
-  self.per_page = 5
+   self.per_page = 5
 
    attr_accessible :last_name,:first_name,
   :email,:password,:information,
@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
   
   before_save :encrypt_password, on: :create 
   before_save :encrypt_secret_word, on: :create
+  before_save :user_position, on: :create
 
     def encrypt_secret_word
       if secret.present? 
@@ -42,6 +43,14 @@ class User < ActiveRecord::Base
         else
           false
         end
+    end
+
+    def user_position
+      if User.maximum(:position)
+        self.position=User.maximum(:position)+1
+      else
+        self.position=1
+      end
     end
 
 end
