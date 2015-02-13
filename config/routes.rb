@@ -21,6 +21,8 @@ WorkRails1::Application.routes.draw do
 		resources :sessions, controller:"public/sessions"
 
 		resources :recover_password, controller:"public/recover_password"
+
+		resources :pictures, controller:"public/pictures"
 	end
 
 	namespace :admin do 

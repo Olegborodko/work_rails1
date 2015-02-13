@@ -1,7 +1,6 @@
-class Profile < ActiveRecord::Base
+class Picture < ActiveRecord::Base
   # attr_accessible :title, :body
-  belongs_to :user
-  mount_uploader :avatar, AvatarUploader
+   mount_uploader :avatar, AvatarUploader
 
    include Rails.application.routes.url_helpers
 

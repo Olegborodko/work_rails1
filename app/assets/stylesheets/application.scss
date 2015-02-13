@@ -1,12 +1,12 @@
 /*
 *= require jquery.ui.all
 *= require_self
+*= require jquery.fileupload-ui
 *= require_tree .
 
 
 */
-@import "bootstrap-sprockets";
-@import "bootstrap";
+
 
 
 div.container form{
@@ -46,5 +46,5 @@ ul li span a{
 }
 
 div.panel{
-	width:700px !important;
+	/* width:700px !important; */
 }
