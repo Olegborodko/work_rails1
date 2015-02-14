@@ -2,25 +2,24 @@
 
 <h1>Log in</h1>
 
-<div class="error_messages">
-<%= flash[:alert] %>
-</div>
+<% if flash[:alert] %>
+<div class='error_messages'><br/><%= flash[:alert] %></div>
+<% else %>
+<div class='not_messages'><br/><%= flash[:notice] %></div>
+<% end %>
 
 <%= form_tag sessions_path do %>
   <p>
-    <%= label_tag :email %><br />
-    <%= text_field_tag :email %>
+    <%= text_field_tag :email, '',class:"input-block-level", placeholder:"Email address" %>
   </p>
   <p>
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
+    <%= password_field_tag :password,'',class:"input-block-level", placeholder:"Password" %>
   </p>
   <%= submit_tag 'Save changes', class:"btn btn-primary" %> 
   <%= link_to "Cancel", root_url, class:"btn btn-primary" %>
     <br/>
   <br/>
-  <%= link_to "forgot your password?", new_recover_password_url, class:"btn btn-primary" %>
+  <%= link_to "forgot your password?", new_recover_password_url %>
 <% end %>
-
 
 

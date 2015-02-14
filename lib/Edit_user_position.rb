@@ -1,5 +1,6 @@
-module Admin::AdministratorsHelper
-	def user_position_edit(params)
+module Edit_User_Position
+
+def edit_user_position(params)
 		params.select! {|x| x!="" }
 
     return if params.first.split('_')[3] != 'position'
@@ -47,17 +48,22 @@ module Admin::AdministratorsHelper
 
         if sort_up_to_down
           user.position=min
-          user.save
+
           min=min+1
+
         else
           user.position=max
-          user.save
+
           max=max-1
+
         end
+
+        user.save
 
 
 
      end
 
 	end
+
 end

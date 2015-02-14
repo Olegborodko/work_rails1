@@ -1,8 +1,9 @@
 <div id="user_nav">
+	<% content_for :head do %>
 		 Logged in as <%= current_admin.email %>
 
 		<%= link_to("Log out",  admin_session_url(session[:admin_id]), method: :delete) %>
-
+<% end %>
 		<div id="admin_all_">
 		<%= render partial: "admin/partial/users_all_ajax" %>
 		</div>

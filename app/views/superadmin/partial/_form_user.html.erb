@@ -2,31 +2,25 @@
 
   <p>
 
-    <%= f.label :email %><br />
-    <%= f.text_field :email  %>
+    <%= f.text_field :email, class: "input-block-level", placeholder:"Email"  %>
     </p>
   <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+    <%= f.password_field :password, class: "input-block-level", placeholder:"Password" %>
     </p>
   <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: "input-block-level", placeholder:"Password confirmation" %>
     </p>
 
   <p>
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, class: "input-block-level", placeholder:"First name" %>
     </p>
 
   <p>
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, class: "input-block-level", placeholder:"Last name" %>
     </p>
 
   <p>
-    <%= f.label :information %><br />
-    <%= f.text_area :information, size: "30x3" %></p>
+    <%= f.text_area :information, size: "30x3", class: "input-block-level", placeholder:"Information" %></p>
 
 
    <%= f.submit class:"btn btn-primary" %>

@@ -7,7 +7,7 @@ class Public::RecoverPasswordController < ApplicationController
 		@user = User.where("email = ?", params[:user][:email]).first
 
 		if !@user
-			redirect_to new_session_url, alert: 'sorry, information about you is not correct'
+			redirect_to new_session_url, alert: 'sorry, information about you is not correct, please get registered'
 			return 
 		end
 
@@ -19,7 +19,7 @@ class Public::RecoverPasswordController < ApplicationController
 		    @user.update_attributes(params[:user])
 
 		    if @user.errors.empty?        
-        	flash[:alert]='you password change'
+        	flash[:notice]='you password change, please sign in'
       	else
         	flash[:alert]='sorry, information about you is not correct'
       	end

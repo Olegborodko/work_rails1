@@ -5,37 +5,30 @@
 <%= form_for @user , remote: true, :html => {:multipart => true}  do |f| %>
 
   <p>
-
-    <%= f.label :email %><br />
-    <%= f.text_field :email, id: 'email_form' %>
+    <%= f.text_field :email, id: 'email_form',class: "input-block-level", placeholder:"Email" %>&nbsp;email 
     <span id='email_form_rezult'></span>
     </p>
   <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password, id: 'password_form' %>
+    <%= f.password_field :password, id: 'password_form', class: "input-block-level", placeholder:"Password" %>&nbsp;password
     <span id='password_form_rezult'></span>
     </p>
   <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, id: 'password_confirmation_form' %>
+     <%= f.password_field :password_confirmation, id: 'password_confirmation_form', class: "input-block-level", placeholder:"Password confirmation" %>&nbsp;password conf
     <span id='password_confirmation_form_rezult'></span>
     </p>
 
   <p>
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, id: 'first_name_form' %>
+    <%= f.text_field :first_name, id: 'first_name_form', class: "input-block-level", placeholder:"First name" %>&nbsp;first name
     <span id='first_name_form_rezult'></span>
     </p>
 
   <p>
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, id: 'last_name_form' %>
+    <%= f.text_field :last_name, id: 'last_name_form', class: "input-block-level", placeholder:"Last name" %>&nbsp;last name 
     <span id='last_name_form_rezult'></span>
     </p>
 
   <p>
-    <%= f.label :information %><br />
-    <%= f.text_area :information, size: "30x3", id: 'area_form' %></p>
+    <%= f.text_area :information, size: "30x3", id: 'area_form', class: "input-block-level", placeholder:"Other information" %></p>
 
    <%= f.submit class:"btn btn-primary" %>
 

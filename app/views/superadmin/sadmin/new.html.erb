@@ -1,4 +1,11 @@
-<h1>Sign Up</h1>
+<h2>Sign Up</h2>
+
+ <% 
+  content_for :head do
+  concat('Logged in as super_admin ')
+
+  concat(link_to("Log out",  admin_session_url(session[:admin_id]), method: :delete)) 
+  end %>
 
 <%= render partial: "superadmin/partial/errors", locals: {my_error: @user} %>
 

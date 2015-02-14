@@ -1,32 +1,28 @@
+<h2>Recover password</h2>
+
 <%= form_tag recover_password_index_url do %>
 
   <p>
-    <%= label_tag :email %><br />
-    <%= text_field_tag "user[email]" %>
+    <%= text_field_tag "user[email]",'', class: "input-block-level", placeholder:"Enter you email" %>
     </p>
   <p>
-    <%= label_tag :first_name %><br />
-    <%= text_field_tag "user[first_name]" %>
+    <%= text_field_tag "user[first_name]",'', class: "input-block-level", placeholder:"First name" %>
     </p>
 
   <p>
-    <%= label_tag :last_name %><br />
-    <%= text_field_tag "user[last_name]" %>
+    <%= text_field_tag "user[last_name]",'', class: "input-block-level", placeholder:"Last name" %>
     </p>
 
   <p>
-    <%= label_tag :secret_word %><br />
-    <%= text_field_tag "user[secret]" %>
+    <%= text_field_tag "user[secret]",'', class: "input-block-level", placeholder:"Enter you secret word" %>
    </p>
 
      <p>
-    <%= label_tag 'new password' %><br />
-    <%= text_field_tag "user[password]" %>
+    <%= text_field_tag "user[password]",'', class: "input-block-level", placeholder:"Your new password" %>
    </p>
 
      <p>
-    <%= label_tag 'new password confirmation' %><br />
-    <%= text_field_tag "user[password_confirmation]" %>
+    <%= text_field_tag "user[password_confirmation]",'', class: "input-block-level", placeholder:"Repeat new password" %>
    </p>
 
 

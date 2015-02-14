@@ -8,9 +8,40 @@
 </head>
 <body>
 
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar-inner">
 <div class="container">
-<%= yield %>
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</a>
+<a class="brand">Rails work</a>
+<div class="nav-collapse collapse">
+
+<%= yield :head %>
+
+</div> 
 </div>
+</div>
+</div>
+<div class="container">
+ 
+<div class="hero-unit">
+<h3><%= yield %></h3>
+
+</div>
+ 
+
+<hr>
+<footer>
+<p>&copy; Borodko Oleg 2015</p>
+</footer>
+</div>  
+
+
+
 
 
 </body>

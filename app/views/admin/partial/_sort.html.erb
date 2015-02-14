@@ -24,7 +24,7 @@
 </span>
 
 <span class='name'>
-<%= link_to("delete element #{key[:position]}", admin_administrator_url(key[:id]), method: :delete, remote: true) %>
+<%= link_to("delete! -> #{key[:position]}", admin_administrator_url(key[:id]), method: :delete, remote: true) %>
 </span>
 
 
@@ -32,7 +32,7 @@
 </li>
 <% end %>
 
-<br>
+<br/>
 <%= ajax_will_paginate @users, :params => { :my_excluded_param => nil } %>
 <%#= will_paginate @users %>
 

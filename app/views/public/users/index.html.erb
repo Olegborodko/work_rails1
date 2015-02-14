@@ -1,9 +1,9 @@
 <div id="user_nav">
   <% if current_user %>
+  <% content_for :head do %>
     Logged in as <%= current_user.email %>
-<%= link_to("Log out", session_url(session[:user_id]), method: :delete) %>
-<br/><br/>
-<%#= link_to "Edit personal information", edit_user_url(session[:user_id]) %>
+  <%= link_to("Log out", session_url(session[:user_id]), method: :delete) %>
+  <% end %>
 
 <div id='open_modal' class="btn btn-primary">Edit personal information
 </div>
@@ -27,16 +27,19 @@
 </br>
 <%= render partial: "public/partial/upload_pictures" %>
 
-
-  <% else %>
-     <%= link_to "Sign Up", new_user_url %> or
-   <%= link_to "Log in", new_session_url %>
-  <% end %>
-</div>
+</br>
 
 <% if @profile %>
 <%=  image_tag @profile.avatar.url %>
 <br>
 <%=  image_tag @profile.avatar.thumb.url %>
 <% end %>
-<!-------------------------->
+
+  <% else %>
+  <% content_for :head do %>
+     <%= link_to "Sign Up", new_user_url %> or
+   <%= link_to "Log in", new_session_url %>
+   <% end %>
+   Please register or log in on site
+  <% end %>
+</div>

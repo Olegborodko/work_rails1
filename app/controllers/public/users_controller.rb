@@ -26,7 +26,7 @@ layout 'create_user', only: [:new, :create]
     @data=User.new(email: params['email_form'])
     @data.valid?
 
-    if current_user && (params['email_form']==params['email_form_ch'])
+    if current_user && current_user.email==params['email_form']
       
       render :js => "response_='V'"
       return
@@ -62,11 +62,11 @@ layout 'create_user', only: [:new, :create]
 
     @user = User.new(params[:user]) #?
 
-    # if User.maximum(:position)
-    #   @user.position=User.maximum(:position)+1
-    # else
-    #   @user.position=1
-    # end
+    if User.maximum(:position)
+      @user.position=User.maximum(:position)+1
+    else
+      @user.position=1
+    end
 
     
     #render json: params[:user][:image]
