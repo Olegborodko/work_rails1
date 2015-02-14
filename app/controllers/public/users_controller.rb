@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 class Public::UsersController < ApplicationController
 before_filter :find_user, only: [:edit, :update]
+layout 'create_user', only: [:new, :create]
 
   def index
     
     if current_user
       @user = User.find(current_user.id) 
-      @profile=@user.profile
+      @profile=@user.pictures.first if @user.pictures
 
       # #render json: Profile.all
     end
@@ -58,6 +59,7 @@ before_filter :find_user, only: [:edit, :update]
   end
 
   def create
+
     @user = User.new(params[:user]) #?
 
     # if User.maximum(:position)
@@ -66,16 +68,12 @@ before_filter :find_user, only: [:edit, :update]
     #   @user.position=1
     # end
 
-    @profile = Profile.new
-    @profile.user=@user
-    @profile.avatar = params[:user][:image]
-
+    
     #render json: params[:user][:image]
     
 
     if @user.save
-
-      @profile.save
+      
 
       session[:user_id] = @user.id
 

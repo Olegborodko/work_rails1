@@ -23,6 +23,10 @@
 
 <%= render partial: "public/partial/form_user_ajax" %>
 
+</br>
+</br>
+<%= render partial: "public/partial/upload_pictures" %>
+
 
   <% else %>
      <%= link_to "Sign Up", new_user_url %> or
@@ -30,12 +34,9 @@
   <% end %>
 </div>
 
-<% if @profile and !@profile.avatar.to_s.empty? %>
+<% if @profile %>
 <%=  image_tag @profile.avatar.url %>
 <br>
 <%=  image_tag @profile.avatar.thumb.url %>
 <% end %>
 <!-------------------------->
-
-
-<%= render partial: "public/partial/upload_pictures" %>

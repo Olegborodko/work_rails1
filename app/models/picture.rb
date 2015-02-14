@@ -1,6 +1,7 @@
 class Picture < ActiveRecord::Base
   # attr_accessible :title, :body
    mount_uploader :avatar, AvatarUploader
+   belongs_to :user
 
    include Rails.application.routes.url_helpers
 
@@ -16,4 +17,6 @@ class Picture < ActiveRecord::Base
       "delete_type" => "DELETE" 
     }
   end
+
+
 end

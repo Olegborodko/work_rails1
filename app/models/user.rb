@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   include My_M
 
-   has_one :profile, dependent: :destroy
+   has_many :pictures, dependent: :destroy
 
    self.per_page = 5
 
@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
   before_save :encrypt_password, on: :create 
   before_save :encrypt_secret_word, on: :create
   before_save :user_position, on: :create
+  after_save :user_picture, on: :create, if: "image"
 
     def encrypt_secret_word
       if secret.present? 
@@ -51,6 +52,13 @@ class User < ActiveRecord::Base
       else
         self.position=1
       end
+    end
+
+    def user_picture        
+        picture = Picture.new
+        picture.user=self
+        picture.avatar = self.image
+        picture.save
     end
 
 end

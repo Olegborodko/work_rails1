@@ -9,6 +9,7 @@
 Admin.delete_all
 Role.delete_all
 User.delete_all
+Picture.delete_all
 
 a=Admin.new(email:'s@s.ua', first_name: '1', last_name:'1', password:'s', password_confirmation:'s');
 r=Role.create(name: 'super_admin')
