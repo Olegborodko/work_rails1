@@ -4,8 +4,8 @@ class Admin < ActiveRecord::Base
 
   belongs_to :role
 
-  attr_accessible :last_name,:first_name,
-  :email,:password,:information,:password_confirmation
+ # attr_accessible :last_name,:first_name,
+ # :email,:password,:information,:password_confirmation
 
   attr_accessor :password
 

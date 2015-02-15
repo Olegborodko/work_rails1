@@ -11,10 +11,10 @@
 
 <%= form_tag admin_sessions_path do %>
   <p>
-    <%= text_field_tag :email,'',class: "input-block-level", placeholder:"Email" %>
+    <%= text_field_tag 'admin[email]','',class: "input-block-level", placeholder:"Email" %>
   </p>
   <p>
-    <%= password_field_tag :password,'',class: "input-block-level", placeholder:"Password" %>
+    <%= password_field_tag 'admin[password]','',class: "input-block-level", placeholder:"Password" %>
   </p>
   <%= submit_tag 'Save changes', class:"btn btn-primary" %> 
   <%= link_to "Cancel", root_url, class:"btn btn-primary" %>

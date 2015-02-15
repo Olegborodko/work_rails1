@@ -3,10 +3,9 @@ class Ability
 
 
   def initialize(user)
-    #puts '------------------>'+ "#{user}"
+    
     
     # Define abilities for the passed in user here. For example:
-   #puts '------------------>'+ "#{user}"
 
       user ||= Admin.new # guest user (not logged in)
 
@@ -14,13 +13,8 @@ class Ability
 
       if user.role.name=="super_admin"
 
-        #can :manage, :all
-        can :manage, :all
-     # end
 
-      #puts '------------------>'+ "#{user}"
-      #puts '------------------------->' + "#{admin.admin?}" 
-      #if user.role=="admin"
+        can :manage, :all
 
       elsif user.role.name=="admin"
 

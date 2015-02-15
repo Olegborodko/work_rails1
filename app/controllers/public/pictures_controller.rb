@@ -7,7 +7,7 @@ class Public::PicturesController < ApplicationController
   end
 
   def create
-    @picture = Picture.new(params[:picture])
+    @picture = Picture.new(person_params)
     @picture.user=current_user
     #@picture.save!
     if @picture.save
@@ -31,5 +31,11 @@ class Public::PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
     @picture.destroy
     render :json => true
+  end
+
+  private
+  
+  def person_params
+      params.require(:picture).permit(:avatar)
   end
 end

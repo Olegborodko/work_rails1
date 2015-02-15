@@ -31,7 +31,7 @@ class Admin::AdministratorsController < ApplicationController
   end
 
   def update
-    @user.update_attributes(params[:user])
+    @user.update_attributes(person_params)
     @users=all_user
 
      respond_to do |format|
@@ -69,6 +69,11 @@ class Admin::AdministratorsController < ApplicationController
 
     def all_user
       User.order("position ASC").paginate(:page => params[:page])
+    end
+
+    def person_params
+      params.require(:user).permit(:last_name,:first_name,
+  :email,:password,:information,:password_confirmation)
     end
 
 

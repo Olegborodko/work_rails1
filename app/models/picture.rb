@@ -5,7 +5,7 @@ class Picture < ActiveRecord::Base
 
    include Rails.application.routes.url_helpers
 
-  attr_accessible :avatar 
+  #attr_accessible :avatar 
   
   def to_jq_upload
     {

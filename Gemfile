@@ -1,24 +1,23 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '4.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3','1.3.6'
+gem 'sqlite3'
 
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '3.2.5'
-  gem 'coffee-rails', '3.2.2'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
 
-  gem 'uglifier', '1.2.7'
-end
+  gem 'sass-rails', '~> 4.0.0'
+  gem 'coffee-rails', '~> 4.0.0'
+#gem 'coffee-rails', '~> 4.0.0'
+
+
+ # gem 'uglifier', '1.2.7'
+ gem 'uglifier', '1.3.0'
+
 
 gem 'jquery-rails','2.0.2'
 
@@ -46,7 +45,7 @@ gem "mini_magick",'4.0.3'
 
 gem 'jquery-fileupload-rails','0.3.0'
 gem 'fog', '1.3.1'
-gem 'haml-rails', '0.3.4'
+#gem 'haml-rails', '0.7.0'
 
 group :development, :test do
   gem 'rspec-rails', '3.2.0'

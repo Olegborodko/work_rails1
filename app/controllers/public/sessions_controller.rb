@@ -4,7 +4,7 @@ class Public::SessionsController < ApplicationController
   end
 
   def create
-    user = User.authenticate(params[:email], params[:password])
+    user = User.authenticate(person_params[:email], person_params[:password])
     if user
       session[:user_id] = user.id
       redirect_to root_url, :notice => "Logged in!"
@@ -21,5 +21,10 @@ class Public::SessionsController < ApplicationController
     redirect_to root_url, :notice => "Logged out!"
   end
 
+  private 
+
+  def person_params
+      params.require(:user).permit(:email, :password)
+  end
 
 end

@@ -45,7 +45,7 @@ layout 'create_user', only: [:new, :create]
 
   def update
     
-    @user.update_attributes(params[:user])
+    @user.update_attributes(person_params)
     
     respond_to do |format|
       if @user.errors.empty?
@@ -60,7 +60,7 @@ layout 'create_user', only: [:new, :create]
 
   def create
 
-    @user = User.new(params[:user]) #?
+    @user = User.new(person_params) #?
 
     if User.maximum(:position)
       @user.position=User.maximum(:position)+1
@@ -88,5 +88,11 @@ layout 'create_user', only: [:new, :create]
   private
     def find_user
       @user = User.find(params[:id])
+    end
+
+    def person_params
+      params.require(:user).permit(:last_name,:first_name,
+  :email,:password,:information,
+  :password_confirmation, :secret,:image)
     end
 end

@@ -16,10 +16,10 @@ class Public::RecoverPasswordController < ApplicationController
  			 @user.secret_word?(params[:user][:secret])
     
 
-		    @user.update_attributes(params[:user])
+		    @user.update_attributes(person_params)
 
 		    if @user.errors.empty?        
-        	flash[:notice]='you password change, please sign in'
+        	flash[:good]='you password change, please sign in'
       	else
         	flash[:alert]='sorry, information about you is not correct'
       	end
@@ -35,6 +35,12 @@ class Public::RecoverPasswordController < ApplicationController
 		redirect_to new_session_url 
 
 	end
+
+	private 
+
+  def person_params
+      params.require(:user).permit(:password, :password_confirmation)
+  end
 
 
 end

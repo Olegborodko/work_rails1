@@ -5,15 +5,15 @@
 <% if flash[:alert] %>
 <div class='error_messages'><br/><%= flash[:alert] %></div>
 <% else %>
-<div class='not_messages'><br/><%= flash[:notice] %></div>
+<div class='not_messages'><br/><%= flash[:good] %></div>
 <% end %>
 
 <%= form_tag sessions_path do %>
   <p>
-    <%= text_field_tag :email, '',class:"input-block-level", placeholder:"Email address" %>
+    <%= text_field_tag 'user[email]', '',class:"input-block-level", placeholder:"Email address" %>
   </p>
   <p>
-    <%= password_field_tag :password,'',class:"input-block-level", placeholder:"Password" %>
+    <%= password_field_tag 'user[password]','',class:"input-block-level", placeholder:"Password" %>
   </p>
   <%= submit_tag 'Save changes', class:"btn btn-primary" %> 
   <%= link_to "Cancel", root_url, class:"btn btn-primary" %>

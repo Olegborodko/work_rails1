@@ -5,10 +5,10 @@ class User < ActiveRecord::Base
 
    self.per_page = 5
 
-   attr_accessible :last_name,:first_name,
-  :email,:password,:information,
-  :password_confirmation, :secret, :password_change,
-  :image, :position
+  # attr_accessible :last_name,:first_name,
+  # :email,:password,:information,
+  # :password_confirmation, :secret, :password_change,
+  # :image, :position
 
   attr_accessor :password, :secret, :password_change, :image
 
