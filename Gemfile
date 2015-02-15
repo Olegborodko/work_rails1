@@ -32,7 +32,7 @@ gem 'mysql2','0.3.17'
 
 gem 'jquery-ui-rails','3.0.0'
 
-gem "cancan",'1.6.10'
+gem 'cancancan', '1.10.1'
 
 gem 'quiet_assets','1.1.0', group: :development
 gem 'thin','1.6.3'

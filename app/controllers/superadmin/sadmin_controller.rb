@@ -18,9 +18,9 @@ class Superadmin::SadminController < ApplicationController
 	end
 
 	def create
-		 @user = Admin.new(person_params)
+		@user = Admin.new(resource_params)
 
-		 @user.role=Role.where(name:'admin').first
+		@user.role=Role.where(name:'admin').first
 
 		#@user.role=r[:id]
 
@@ -38,7 +38,7 @@ class Superadmin::SadminController < ApplicationController
 	end
 
 	def update
-    @user.update_attributes(person_params)
+    @user.update_attributes(resource_params)
     
       if @user.errors.empty?        
       	redirect_to superadmin_sadmin_index_url
@@ -57,8 +57,8 @@ class Superadmin::SadminController < ApplicationController
       @user = Admin.find(params[:id])
     end
 
-    def person_params
+    def resource_params
     	params.require(:admin).permit(:last_name,:first_name,
-  :email,:password,:information,:password_confirmation,:role)
+  :email,:password,:information,:password_confirmation)
 		end
 end

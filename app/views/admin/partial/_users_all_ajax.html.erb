@@ -1,3 +1,5 @@
+<h2> Users </h2>
+
 <div class="btn-group">
   <a class="btn btn-inverse" data-toggle="dropdown" href="#">
     Sort items, up and down
@@ -26,11 +28,38 @@
 </ul>
 </div>
 
+
+<ul class='header_ul'>
+<li>
+
+<span class='name'>
+Email
+</span>
+
+<span class='name'>
+Last name
+</span>
+
+<span class='name'>
+First name
+</span>
+
+<span class='name'>
+Position
+</span>
+
+</li>
+</ul>
+
+
+
 <ul id="sortable" >
 
 <%= render partial: "admin/partial/sort" %>
 
 </ul>
-<br>
+<% if @users.empty? %>
+<div id='sort_view'>bd Users empty</div>
+<% else %>
 <div id='sort_view'>Select element for move</div>
-
+<% end %>

@@ -28,7 +28,7 @@ GEM
     arel (4.0.2)
     bcrypt (3.1.9)
     builder (3.1.4)
-    cancan (1.6.10)
+    cancancan (1.10.1)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -400,7 +400,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (= 3.1.9)
-  cancan (= 1.6.10)
+  cancancan (= 1.10.1)
   carrierwave (= 0.10.0)
   coffee-rails (~> 4.0.0)
   database_cleaner (= 1.4.0)

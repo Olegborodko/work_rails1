@@ -11,6 +11,9 @@ Email
 Last name
 </td>
 <td class='title'>
+First name
+</td>
+<td class='title'>
 Delete
 </td>
 </tr>
@@ -20,13 +23,11 @@ Delete
 	@admins.each do |key|
 
 		concat raw "<tr><td> #{ link_to(key[:email],  edit_superadmin_sadmin_url(key[:id])) } </td>
-
-
 		<td> #{key[:last_name]} </td>
-
-<td>
-#{ link_to("X", superadmin_sadmin_url(key[:id]), method: :delete) }
-</td>
+		<td> #{key[:first_name]} </td>
+		<td>
+		#{ link_to("X", superadmin_sadmin_url(key[:id]), method: :delete) }
+		</td>
 		</tr>"
 
 	end 
