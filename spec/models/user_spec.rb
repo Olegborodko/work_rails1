@@ -5,9 +5,16 @@ require 'rails_helper'
 # end
 
 RSpec.describe User, :type => :model do
-	it 'mazafaka' do
-  	user1=create(:user)
-  	user1.password.should =='password'
+	let!(:user) {create(:user)}
+
+	it 'method secret_word = true' do
+		user1=user
+  	user1.secret_word?(user1.secret).should==true
+	end
+
+	it 'user authenticate = true' do
+		user1=user
+		User.authenticate(user1.email, user1.password).should==user1
 	end
 
 end

@@ -10,11 +10,21 @@ factory :user do
     sequence(:last_name) { |i| "last_name_#{ i }" }
 
     password   "password"
+    password_confirmation   "password"
     secret   "secret"
+
+    position {position_user}
 
 end
 
- 
 
 	
 end
+
+	def position_user
+	 	if User.maximum(:position)
+	      User.maximum(:position)+1
+	    else
+	      1
+	    end
+	end
