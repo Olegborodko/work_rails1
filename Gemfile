@@ -63,3 +63,5 @@ group :test do
   gem 'faker','1.4.3'
   gem 'database_cleaner','1.4.0'
 end
+
+gem 'puma'
