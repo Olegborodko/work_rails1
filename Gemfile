@@ -64,4 +64,6 @@ group :test do
   gem 'database_cleaner','1.4.0'
 end
 
-gem 'puma'
+gem 'puma','2.11.1'
+
+gem 'cloudinary','1.0.82'

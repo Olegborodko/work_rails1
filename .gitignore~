@@ -14,5 +14,7 @@
 /log/*.log
 /tmp
 
-#my
-/public/*
+#delete for heroku!
+/public
+
+

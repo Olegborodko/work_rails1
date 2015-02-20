@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dswrtfwvt
+  api_key: '268564862676428'
+  api_secret: QO5JNNdEOSGIsBGmSN8wiCer79M
+  enhance_image_tag: true
+  static_image_support: true
+production:
+  cloud_name: dswrtfwvt
+  api_key: '268564862676428'
+  api_secret: QO5JNNdEOSGIsBGmSN8wiCer79M
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dswrtfwvt
+  api_key: '268564862676428'
+  api_secret: QO5JNNdEOSGIsBGmSN8wiCer79M
+  enhance_image_tag: true
+  static_image_support: false

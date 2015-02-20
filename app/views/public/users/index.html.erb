@@ -29,11 +29,6 @@
 
 </br>
 
-<% if @profile %>
-<%=  image_tag @profile.avatar.url %>
-<br>
-<%=  image_tag @profile.avatar.thumb.url %>
-<% end %>
 
   <% else %>
   <% content_for :head do %>
