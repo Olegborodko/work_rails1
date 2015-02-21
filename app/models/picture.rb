@@ -1,7 +1,8 @@
 class Picture < ActiveRecord::Base
   # attr_accessible :title, :body
    mount_uploader :avatar, AvatarUploader
-   belongs_to :user
+   #belongs_to :user
+   belongs_to :user, polymorphic: true
 
    include Rails.application.routes.url_helpers
 

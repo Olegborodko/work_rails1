@@ -1,14 +1,29 @@
 class Public::PicturesController < ApplicationController
 	def index
    # @pictures = Picture.where(user_id: @current_user)
-   @pictures = Picture.where(user_id: current_user.id)
+
+   #@pictures = Picture.where(user_id: current_user.id)
+    if current_user
+    @pictures=Picture.where(user_id: current_user.id)
+    elsif current_admin
+    @pictures=Picture.where(user_id: current_admin.id)
+    end
 
     render :json => @pictures.collect { |p| p.to_jq_upload }.to_json
   end
 
   def create
     @picture = Picture.new(person_params)
-    @picture.user=current_user
+
+     if current_user
+     @picture.user=current_user
+     elsif current_admin
+     @picture.user=current_admin
+     end
+
+    
+
+
     #@picture.save!
     if @picture.save
 
@@ -36,6 +51,6 @@ class Public::PicturesController < ApplicationController
   private
   
   def person_params
-      params.require(:picture).permit(:avatar)
+      params.require(:picture).permit(:avatar, :role)
   end
 end

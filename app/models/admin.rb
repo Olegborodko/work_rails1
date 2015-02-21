@@ -3,6 +3,7 @@ class Admin < ActiveRecord::Base
   include My_M
 
   belongs_to :role
+  has_many :pictures, as: :user, dependent: :destroy
 
  # attr_accessible :last_name,:first_name,
  # :email,:password,:information,:password_confirmation

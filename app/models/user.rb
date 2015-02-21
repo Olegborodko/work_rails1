@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   include My_M
 
-   has_many :pictures, dependent: :destroy
+   #has_many :pictures, dependent: :destroy
+   has_many :pictures, as: :user, dependent: :destroy
 
    self.per_page = 5
 
