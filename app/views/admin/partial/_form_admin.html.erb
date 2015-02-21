@@ -1,0 +1,30 @@
+<% if @admin.errors.any? %>
+<div class='error_messages'>
+  <%for message in @admin.errors.full_messages%><%=message%>
+  <br>
+  <%end%>
+</div>
+  <% end %>
+</div>
+
+<%= form_for @admin,  url: admin_update_me_url, method: :post, remote: true do |f| %>
+
+  <p>
+    <%= f.text_field :email,class: "input-block-level", placeholder:"Email"  %>
+    </p>
+  <p>
+    <%= f.text_field :first_name,class: "input-block-level", placeholder:"First name" %>
+    </p>
+
+  <p>
+    <%= f.text_field :last_name,class: "input-block-level", placeholder:"Last name" %>
+    </p>
+
+  <p>
+    <%= f.text_area :information, size: "30x3",class: "input-block-level", placeholder:"information" %></p>
+
+   <%= f.submit class:"btn btn-primary" %>
+
+   <%= link_to "Cancel", admin_url, class:"btn btn-primary", remote: true %>
+
+<% end %>

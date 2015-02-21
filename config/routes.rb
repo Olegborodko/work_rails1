@@ -28,6 +28,8 @@ WorkRails1::Application.routes.draw do
 	namespace :admin do 
 		get '/' => 'administrators#index'
 		resources :administrators
+		get 'edit_me' => 'administrators#edit_me'
+		post 'update_me' => 'administrators#update_me'
 		resources :sessions
 	end
 

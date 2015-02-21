@@ -1,0 +1,12 @@
+<% if @admin.errors.empty? %>
+
+
+
+
+$("#edit_me").html('<%=j render 'admin/partial/edit_admin' %>');
+
+ 
+    
+<% else %>
+$("#edit_me").html('<%=j render 'admin/partial/form_admin' %>');
+<% end %>

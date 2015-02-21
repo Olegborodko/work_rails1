@@ -1,9 +1,10 @@
 class Admin::AdministratorsController < ApplicationController
   include Edit_User_Position
 	before_filter :find_user, only: [:edit, :update, :destroy]
+  before_filter :current_admin?, only: [:edit_me,:update_me]
+  before_filter :current_admin_id
 
-  load_and_authorize_resource :user, except:[:show], :parent => false
-
+  load_and_authorize_resource :user, except:[:show,:edit_me,:update_me], :parent => false
 
   def index
 
@@ -12,6 +13,7 @@ class Admin::AdministratorsController < ApplicationController
     else
 
       @users = all_user
+  
     end
 
   end
@@ -62,6 +64,15 @@ class Admin::AdministratorsController < ApplicationController
 
   end
 
+  def edit_me
+    @admin=Admin.find(current_admin.id)
+  end
+
+  def update_me
+     @admin=Admin.find(current_admin.id)
+     @admin.update_attributes(person_params_admin)
+  end
+
   private
     def find_user
       @user = User.find(params[:id])
@@ -74,6 +85,19 @@ class Admin::AdministratorsController < ApplicationController
     def person_params
       params.require(:user).permit(:last_name,:first_name,
   :email,:password,:information,:password_confirmation)
+    end
+
+    def person_params_admin
+      params.require(:admin).permit(:last_name,:first_name,
+  :email,:information)
+    end
+
+    def current_admin?
+       authorize
+    end
+
+    def current_admin_id
+      @admin=current_admin
     end
 
 
