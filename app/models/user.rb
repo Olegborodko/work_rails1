@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true, on: :create
   validates :password_confirmation, presence: true, on: :create
 
+  validates :password, length: { minimum: 6 }, if: "password"
+
   validates :password, confirmation: true, on: :update, if: "password"
   validates :password_confirmation, presence: true, on: :update, if: "password"
   

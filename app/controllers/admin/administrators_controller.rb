@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Admin::AdministratorsController < ApplicationController
   include Edit_User_Position
 	before_filter :find_user, only: [:edit, :update, :destroy]

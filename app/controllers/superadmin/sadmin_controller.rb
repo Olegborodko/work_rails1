@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Superadmin::SadminController < ApplicationController
 	before_filter :find_user, only: [:edit, :update, :destroy]
 	load_and_authorize_resource :admin, :parent => false

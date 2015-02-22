@@ -10,6 +10,8 @@ class Admin < ActiveRecord::Base
 
   attr_accessor :password
 
+  validates :password, length: { minimum: 6 }, if: "password"
+
   validates :last_name,:first_name,
   :email, :presence => true
 

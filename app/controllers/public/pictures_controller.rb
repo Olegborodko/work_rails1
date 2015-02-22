@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Public::PicturesController < ApplicationController
 	def index
    # @pictures = Picture.where(user_id: @current_user)

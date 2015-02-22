@@ -5,7 +5,7 @@ jQuery(function($) {
 var callbacks_password = $.Callbacks();
 callbacks_password.add( validation_presence );
 callbacks_password.add( validation_password );
-
+callbacks_password.add( validation_length );
 
 
 //--------------
@@ -25,6 +25,13 @@ $("#last_name_form").change(validation_presence);
 $("#secret").change(validation_presence);
 
 //--------------
+
+function validation_length(){
+  if (( $("#"+this.id).val().length )<6){
+    $("#"+this.id+"_rezult").html("length < 6");
+    $("#"+this.id+"_rezult").css('color', 'red');
+  }
+  }
 
 function validation_presence(){
 
