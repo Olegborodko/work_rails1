@@ -22,7 +22,10 @@ class Admin < ActiveRecord::Base
     validates :password_confirmation, presence: true, on: :create 
 
     before_save :encrypt_password, on: :create 
+    before_save :admin_role, on: :create 
 
-
+    def admin_role
+      self.role=Role.where(name:'admin').first
+    end
 
 end

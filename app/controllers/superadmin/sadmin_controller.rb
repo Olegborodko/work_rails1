@@ -21,7 +21,7 @@ class Superadmin::SadminController < ApplicationController
 	def create
 		@user = Admin.new(resource_params)
 
-		@user.role=Role.where(name:'admin').first
+		#@user.role=Role.where(name:'admin').first
 
 		#@user.role=r[:id]
 
