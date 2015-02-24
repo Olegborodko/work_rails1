@@ -62,11 +62,6 @@ layout 'create_user', only: [:new, :create]
 
     @user = User.new(person_params) #?
 
-    if User.maximum(:position)
-      @user.position=User.maximum(:position)+1
-    else
-      @user.position=1
-    end
 
     
     #render json: params[:user][:image]

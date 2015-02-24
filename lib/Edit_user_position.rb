@@ -58,7 +58,7 @@ def edit_user_position(params)
 
         end
 
-        user.save
+        user.save(validate: false)
 
 
 

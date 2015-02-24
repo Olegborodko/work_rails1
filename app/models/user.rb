@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
   
   before_save :encrypt_password, on: :create 
   before_save :encrypt_secret_word, on: :create
+  before_save :position_user, on: :create
   after_save :user_picture, on: :create, if: "image"
 
     def encrypt_secret_word
@@ -53,6 +54,15 @@ class User < ActiveRecord::Base
         picture.user=self
         picture.avatar = self.image
         picture.save
+    end
+
+    def position_user
+      if User.maximum(:position)
+        self.position=User.maximum(:position)+1
+      else
+        self.position=1
+      end
+
     end
 
 end
