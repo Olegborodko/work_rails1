@@ -22,7 +22,12 @@ class Public::PicturesController < ApplicationController
      @picture.user=current_admin
      end
 
-    
+     #limit
+     sum_pocture=Picture.where(user: @picture.user)
+      if sum_pocture.count>3 
+        render :json => [{:error => "sorry .. limit reached"}]
+        return
+      end
 
 
     #@picture.save!

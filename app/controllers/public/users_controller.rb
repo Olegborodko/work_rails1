@@ -49,10 +49,11 @@ layout 'create_user', only: [:new, :create]
     
     respond_to do |format|
       if @user.errors.empty?
-        
-        format.js{@rezult=true}
+        @rezult=true
+        format.js{}
       else
-        format.js{@rezult=false}
+        @rezult=false
+        format.js{}
       end
     end
 
@@ -82,7 +83,11 @@ layout 'create_user', only: [:new, :create]
 
   private
     def find_user
-      @user = User.find(params[:id])
+      if current_user
+        @user = User.find(params[:id])
+      else
+        redirect_to root_url
+      end
     end
 
     def person_params

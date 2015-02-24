@@ -7,17 +7,17 @@ describe Admin do
 	}
 
 
-	it 'role = admin' do
+	# it 'role = admin' do
 
-		role_1=create(:role, {name: "admin"})
-		role_2=create(:role, {name: "super_admin"})
+	# 	role_1=create(:role, {name: "admin"})
+	# 	role_2=create(:role, {name: "super_admin"})
 
-		admin1=admin  #create admin
+	# 	admin1=admin  #create admin
 		
-		admin1.role.should==role_1
+	# 	admin1.role.should==role_1
 
   	
-	end
+	# end
 
 	it 'admin authenticate = true' do
 		admin1=admin

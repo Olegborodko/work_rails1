@@ -18,11 +18,3 @@ RSpec.describe User, :type => :model do
 	end
 
 end
-
-
-# describe User do 
-# 	it "should do something" do
-# 		(1+1).should == 2
-# 	end
-	
-# end
